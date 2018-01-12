@@ -8,7 +8,7 @@ Strictly for getting only info what can be found right on the landing page for a
      
 Usage:   
 Import script - `<script src="./jquery.igjs.min.js"></script>`   
-Get your posts - 
+Get your posts -  
 ```javascript    
 $('.ig-feed').igjs({   
   user: 'amazingusername',   
