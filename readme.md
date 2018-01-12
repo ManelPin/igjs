@@ -20,4 +20,6 @@ Options:
 *  user: 'instagram' - the public user account to scrape    
 *  posts: 12 - number of posts to get   
 *  perRow: 4 - number of posts per row (uses bootstrap 3 classes to achieve)  
+
+See it in action - <a href="https://nrandall.github.io/igjs/" target="_blank">here</a>
     
