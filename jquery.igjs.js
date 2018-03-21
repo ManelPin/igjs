@@ -20,7 +20,7 @@
         var posts = JSON.parse(data.contents.split('window._sharedData = ')[1].split('\;\<\/script>')[0]).entry_data.ProfilePage[0].graphql.user.edge_owner_to_timeline_media.edges //parse the html into array of posts
         posts.forEach(function (e, i) { // cycle through posts and create presentation html for each one
           $this.posts.push(e)
-          if (i < postCount) el.append('<div class="col-xs-' + columns + ' ig-img-wrap"><a title="See on Instagram" target="_blank" href="http://instagram.com/p/' + e.node.shortcode + '"><img alt="Instagram Photo ' + (i + 1) + '" class="img-responsive ig-img ig-img-' + (i + 1) + '" src="' + e.node.thumbnail_src + '"></a></div>')
+          if (i < postCount) el.append('<div class="col-xs-' + columns + ' ig-img-wrap"><a title="See on Instagram" target="_blank" href="https://instagram.com/p/' + e.node.shortcode + '"><img alt="Instagram Photo ' + (i + 1) + '" class="img-responsive ig-img ig-img-' + (i + 1) + '" src="' + e.node.thumbnail_src + '"></a></div>')
         })
       });
       return $this.posts

@@ -9,38 +9,47 @@
 <body>
   <div class="container">
     <h2>Instagram Feed</h2>
-    <hr><h3>With jQuery Bootstrap</h3>
-    <div class="ig-feed"></div>
+    <hr>
+    <h3>With jQuery/Bootstrap</h3>
+    <div class="ig-feed row"></div>
+    <hr>
+    <h3>With Vanilla JS</h3>
     <div class="ig-info">
       <img src="" alt="">
       <ul>
         <li class="caption"></li>
         <li class="comments"></li>
         <li class="likes"></li>
-        <li class="thumbnails"></li>
         <li class="timestamp"></li>
         <li class="url"></li>
+        <li class="thumbnails"></li>
       </ul>
     </div>
-    
-    <div class="ig-feed"></div>
   </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="./jquery.igjs.js"></script>
   <script type="text/javascript" src="./igjs.js"></script>
   <script type="text/javascript">
-    var posts = getPosts('instagram');
+    getPosts('katrandall').then(posts => {
+      $('.ig-info img').attr('src', posts[0].image)
+      $('.caption').append('<h3>Caption:</h3> ' + posts[0].caption)
+      $('.comments').append('<h3>Comments: </h3>' + posts[0].comments)
+      $('.likes').append('<h3>Likes: </h3>' + posts[0].likes)
+      $('.timestamp').append('<h3>Timestamp: </h3>' + posts[0].timestamp)
+      $('.url').append('<h3>Url: </h3>' + posts[0].url)
+      $('.thumbnails').append('<div><h3>Thumbnails: </h3></div><br>')
+      for (let thumb in posts[0].thumbnails) {
+        $('.thumbnails').append('<img src="'+posts[0].thumbnails[thumb]+'"><br>')
+      }
+    });
 
-    $(function(){  
+    $(function(){
       $('.ig-feed').igjs({
         user: 'instagram',
         posts: 8,
         perRow: 4
       });
-      console.log(posts)
-      $('.ig-info img').attr('src', posts[0].nice.image)
-      $('.caption').val(posts[0].nice.caption)
     })
 
   </script>
